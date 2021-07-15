@@ -6,14 +6,8 @@ Created on Wed Jul  7 10:20:26 2021
 @author: mauriciorestrepo
 """
 
-
-
 import pandas as pd
 import numpy as np
-#archivo = '/Users/mauriciorestrepo/Desktop/Python/python-course/Programas Matemáticas.xlsx'
-#df = pd.read_excel(archivo, sheet_name='Programas')
-#print(df)
-
 
 s = pd.DataFrame({
     'A1':[1, 2, 3, 4, 5],
@@ -27,17 +21,7 @@ print(s.describe())
 
 s.info()
 
-
-
-
-#print(ventas.index)
-
-#print(ventas.values)
-
-#print(ventas.head())
-
-
-#Método loc
+#Method loc
 
 print('loc[Ene] = ',s.loc['Ene'])
 
@@ -46,7 +30,7 @@ print('loc[[Ene],[Feb]] = ',s.loc[['Ene','Feb']])
 print('loc[Ene:Abr] = ',s.loc['Ene':'Abr'])
 
 
-#Método iloc
+#Method iloc
 
 
 print('iloc[0] = ',s.iloc[0])
