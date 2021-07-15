@@ -6,14 +6,8 @@ Created on Wed Jul  7 10:20:26 2021
 @author: mauriciorestrepo
 """
 
-
-
 import pandas as pd
 import numpy as np
-#archivo = '/Users/mauriciorestrepo/Desktop/Python/python-course/Programas Matemáticas.xlsx'
-#df = pd.read_excel(archivo, sheet_name='Programas')
-#print(df)
-
 
 df1= pd.DataFrame(np.arange(9).reshape(3,3),
                   index = ['a','b','d'],
@@ -32,9 +26,3 @@ print(df3)
 df4 = pd.concat([df1,df2], axis = 1, sort = False)
 
 print(df4)
-
-#Funcion Merge (por explorar):
-
-#df5 = pd.merge(df1, df2)
-
-#print('df5 = ',df5)
