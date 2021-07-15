@@ -10,10 +10,8 @@ Created on Wed Jul  7 10:20:26 2021
 
 import pandas as pd
 import numpy as np
-#archivo = '/Users/mauriciorestrepo/Desktop/Python/python-course/Programas Matemáticas.xlsx'
-#df = pd.read_excel(archivo, sheet_name='Programas')
-#print(df)
 
+#Create dataframes from two Series
 
 s1 = pd.Series([1, 2, 3, 4], index =['a','b','c','d'])
 s2 = pd.Series([10, 20, 30, 40], index =['a','b','c','d'])
@@ -31,7 +29,7 @@ print(s)
 #print(ventas.head())
 
 
-#Método loc
+#Method loc
 
 print('loc[b] = ',s.loc['b'])
 
@@ -40,7 +38,7 @@ print('loc[[b],[c]] = ',s.loc[['b','c']])
 print('loc[b:d] = ',s.loc['b':'d'])
 
 
-#Método iloc
+#Method iloc
 
 
 print('iloc[1:] = ',s.iloc[1:])
