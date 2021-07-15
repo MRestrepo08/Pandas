@@ -6,14 +6,8 @@ Created on Wed Jul  7 10:20:26 2021
 @author: mauriciorestrepo
 """
 
-
-
 import pandas as pd
 import numpy as np
-#archivo = '/Users/mauriciorestrepo/Desktop/Python/python-course/Programas Matemáticas.xlsx'
-#df = pd.read_excel(archivo, sheet_name='Programas')
-#print(df)
-
 
 import requests
 
@@ -26,30 +20,27 @@ with open(target_csv_path, "wb") as f:
     f.write(response.content)
 print("Download ready.")
 
-#Fijar dos decimales de precision
+#Fix precision
 
-#pd.set_option('display.precision', 2)
+pd.set_option('display.precision', 2)
 
 nba = pd.read_csv("nba_all_elo.csv")
 print(nba.head())
 print(nba.info())
 
-#Estadística básica
-
+#Basic statistics
 
 print(nba.describe())
 
-#Explorando
+#Exploring
 
-
-#Conteos, frecuencias
-
+##Counts, frecuencies
 
 print(nba['team_id'].value_counts())
 
 print(nba['fran_id'].value_counts())
 
-#Búsquedas en el dataset
+#Searching
 
 current_decade = nba[nba["year_id"] > 2010]
 print('2010 = ',current_decade.shape)
@@ -61,33 +52,33 @@ print(nba[
     (nba["team_id"] == "BLB")
 ])
 
-#Columnas. Crear una copia del dataset
+#Columns. Copy the dataset
 
 df = nba.copy()
 print(df.shape)
 
-#renombrar columnas
+#Columns rename
 
 renamed_df = df.rename(columns={"game_result": "result", "game_location": "location"})
 
-#Eliminar columnas
+#Drop columns
 
 
 elo_columns = ["elo_i", "elo_n", "opp_elo_i", "opp_elo_n"]
 df.drop(elo_columns, inplace=True, axis=1)
 print(df.shape)
 
-#Crear nuevas columnas
+#Create new columns
 
 df['Diferencia'] = df.pts - df.opp_pts
 print(df.shape)
 
-#Tipos de datos
+#Data Type
 
 print(df.info())
 
 
-####Formato
+####Format
 
 df["date_game"] = pd.to_datetime(df["date_game"])
 df["game_location"] = pd.Categorical(df["game_location"])
@@ -95,16 +86,16 @@ df["game_location"] = pd.Categorical(df["game_location"])
 print(df.info())
 
 
-#Pre-procesamiento. Datos faltantes
+#Pre-procesing. Missing Data
 
 
 data_without_missing_columns = nba.dropna(axis=1)
 print('Miss = ', data_without_missing_columns.shape)
 
-#Visualización de los datos
+#Data visualization
 
-#matplotlib inline
+matplotlib inline
 
-#nba[nba["fran_id"] == "Knicks"].groupby("year_id")["pts"].sum().plot()
+nba[nba["fran_id"] == "Knicks"].groupby("year_id")["pts"].sum().plot()
 
 nba["fran_id"].value_counts().head(10).plot(kind="bar")
