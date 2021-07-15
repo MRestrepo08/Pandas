@@ -1,2 +1,2 @@
 # Pandas
-Some basic commands to understand and to use Pandas
+Some basic commands and examples to understand and to use Pandas
